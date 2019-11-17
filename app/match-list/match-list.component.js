@@ -132,6 +132,9 @@ angular.module('dota2App').component('matchList', {
                     }
                     // 0-127 are Radiant, 128-255 are Dire
                     row.firstBloodTeam = function(){
+                        if(this.first_blood_team != undefined){
+                            return this.first_blood_team == 1 ? getTeamTag(this.dire_team) + '(夜魇)' : getTeamTag(this.radiant_team) + '(天辉)';
+                        }
                         if(!!!this.objectives || this.objectives.length == 0){
                             return '';
                         }
